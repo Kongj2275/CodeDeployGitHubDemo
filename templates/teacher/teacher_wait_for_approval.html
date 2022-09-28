@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load widget_tweaks %}
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+  <style media="screen">
+        h1,h2,h3,h4,h5,h6, label {
+font-family: "Noto Sans";
+}  
+    .jumbotron {
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+
+    .jumbotron h1 {
+      text-align: center;
+    }
+
+    .alert {
+      margin: 0px;
+    }
+  </style>
+  <body>
+    {% include "quiz/navbar.html" %}
+
+      <div class="jumbotron" style="margin-top: 0px;
+        margin-bottom: 0px;">
+        <h1 class="display-4">Hello {{request.user.first_name}}</h1>
+        <p class="lead">We haven't approved your account for use yet <br><br>Our admins will be with you shortly <br><br>Please allow up to 24 hours for processing</p>
+        <hr class="my-4">
+        <p>Check back later</p>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="/logout" role="button">Logout</a>
+        </p>
+      </div>
+
+{% include "quiz/footer.html" %}
+  </body>
+</html>

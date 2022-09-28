@@ -1,0 +1,270 @@
+<head>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+	<style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    
+	}
+	@media (min-width: 769px) and (max-width: 992px) {
+  .btn-responsive {
+    padding:4px 9px;
+    font-size:90%;
+    line-height: 1.2;
+	}
+	}
+	
+	.btn {
+	font-family: "Noto Sans";
+	}
+
+
+  </style>
+</head>
+
+<div class="container">
+  <div class="row g-4">
+    <div class="col-6">
+	  <button type="button" class="btn btn-outline-primary btn-responsive btn-lg w-100" data-bs-toggle="modal" data-bs-target="#BoringModal">Boring</button>
+    </div>
+    <div class="col-6">
+      <button type="button" class="btn btn-success btn-responsive btn-lg w-100" data-bs-toggle="modal" data-bs-target="#HappyModal">Happy</button>
+    </div>
+    <div class="col-6">
+	  <button type="button" class="btn btn-info btn-responsive btn-lg w-100" data-bs-toggle="modal" data-bs-target="#FearModal">Fear</button>
+    </div>
+    <div class="col-6">
+      <button type="button" class="btn btn-primary btn-responsive btn-lg w-100" data-bs-toggle="modal" data-bs-target="#FearModal">Anxious</button>
+    </div>
+	<div class="col-6">
+	  <button type="button" class="btn btn-danger btn-responsive btn-lg w-100" data-bs-toggle="modal" data-bs-target="#AngryModal">Angry</button>
+    </div>
+    <div class="col-6">
+      <button type="button" class="btn btn-warning btn-responsive btn-lg w-100" data-bs-toggle="modal" data-bs-target="#SadModal">Sad</button>
+    </div>
+    <div class="col-6">
+	  <button type="button" class="btn btn-dark btn-responsive btn-lg w-100" data-bs-toggle="modal" data-bs-target="#DisgustModal">Disgust</button>
+    </div>
+    <div class="col-6">
+      <button type="button" class="btn btn-secondary btn-responsive btn-lg w-100" data-bs-toggle="modal" data-bs-target="#EnvyModal">Envy</button>
+    </div>
+  </div>
+  
+ <div class="text-end">
+	<a href="{% url 'postquestions' course.id  %}" class="btn btn-outline-primary btn-responsive">End Session</a>
+    </a>
+</div>
+</div>
+ 
+<!-- BoringModal -->
+<div class="modal fade" id="BoringModal" tabindex="-1" aria-labelledby="BoringModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+	  <div class="modal-header">
+        <h2 class="modal-title" id="BoringModalLabel">Select level of Boring</h2>
+      </div>
+        <div class="modal-body">
+            <form class="form" autocomplete="off" onsubmit="return saveAns()"  action="/student/start-exam/{{ course.id }}" method="POST">
+                <label for="customRange1" class="form-label">Please select a range from 1 (Low) to 10 (High) that best describes your current feeling intensity.</label>
+				<input type="range" class="form-range" value="5" min="1" max="10" oninput="this.nextElementSibling.value = this.value" id="customRange2">
+				Current Level is <output>5</output>
+				<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+				</div>
+            </form>
+      </div>
+   </div>
+  </div>
+</div>
+
+
+<!-- HappyModal -->
+<div class="modal fade" id="HappyModal" tabindex="-1" aria-labelledby="HappyModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+	  <div class="modal-header">
+        <h2 class="modal-title" id="HappyModalLabel">Select level of Happy</h2>
+      </div>
+        <div class="modal-body">
+            <form class="form" autocomplete="off" onsubmit="return saveAns()"  action="/student/start-exam/{{ course.id }}" method="POST">
+                <label for="customRange1" class="form-label">Please select a range from 1 (Low) to 10 (High) that best describes your current feeling intensity.</label>
+				<input type="range" class="form-range" value="5" min="1" max="10" oninput="this.nextElementSibling.value = this.value" id="customRange2">
+				Current Level is <output>5</output>
+				<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+				</div>
+            </form>
+      </div>
+   </div>
+  </div>
+</div>
+
+
+<!-- FearModal -->
+<div class="modal fade" id="FearModal" tabindex="-1" role="dialog" aria-labelledby="FearModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">Select level of Fear</h2>
+      </div>
+      <div class="modal-body">
+            <form class="form" autocomplete="off" onsubmit="return saveAns()"  action="/student/start-exam/{{ course.id }}" method="POST">
+                <label for="customRange1" class="form-label">Please select a range from 1 (Low) to 10 (High) that best describes your current feeling intensity.</label>
+				<input type="range" class="form-range" value="5" min="1" max="10" oninput="this.nextElementSibling.value = this.value" id="customRange3">
+				Current Level is <output>5</output>
+				<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+				</div>
+            </form>
+      </div>
+   </div>
+  </div>
+</div>
+
+
+<!-- AnxiousModal -->
+<div class="modal fade" id="AnxiousModal" tabindex="-1" role="dialog" aria-labelledby="AnxiousModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">Select level of Anxious</h2>
+      </div>
+      <div class="modal-body">
+            <form class="form" autocomplete="off" onsubmit="return saveAns()"  action="/student/start-exam/{{ course.id }}" method="POST">
+                <label for="customRange1" class="form-label">Please select a range from 1 (Low) to 10 (High) that best describes your current feeling intensity.</label>
+				<input type="range" class="form-range" value="5" min="1" max="10" oninput="this.nextElementSibling.value = this.value" id="customRange4">
+				Current Level is <output>5</output>
+				<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+				</div>
+            </form>
+      </div>
+   </div>
+  </div>
+</div>
+
+<!-- AngryModal -->
+<div class="modal fade" id="AngryModal" tabindex="-1" role="dialog" aria-labelledby="AngryModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">Select level of Angry</h2>
+      </div>
+      <div class="modal-body">
+            <form class="form" autocomplete="off" onsubmit="return saveAns()"  action="/student/start-exam/{{ course.id }}" method="POST">
+                <label for="customRange1" class="form-label">Please select a range from 1 (Low) to 10 (High) that best describes your current feeling intensity.</label>
+				<input type="range" class="form-range" value="5" min="1" max="10" oninput="this.nextElementSibling.value = this.value" id="customRange5">
+				Current Level is <output>5</output>
+				<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+				</div>
+            </form>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+<!-- SadModal -->
+<div class="modal fade" id="SadModal" tabindex="-1" role="dialog" aria-labelledby="SadModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">Select level of Sad</h2>
+      </div>
+      <div class="modal-body">
+            <form class="form" autocomplete="off" onsubmit="return saveAns()"  action="/student/start-exam/{{ course.id }}" method="POST">
+                <label for="customRange1" class="form-label">Please select a range from 1 (Low) to 10 (High) that best describes your current feeling intensity.</label>
+				<input type="range" class="form-range" value="5" min="1" max="10" oninput="this.nextElementSibling.value = this.value" id="customRange6">
+				Current Level is <output>5</output>
+				<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+				</div>
+            </form>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- DisgustModal -->
+<div class="modal fade" id="DisgustModal" tabindex="-1" role="dialog" aria-labelledby="DisgustModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">Select level of Disgust</h2>
+      </div>
+      <div class="modal-body">
+            <form class="form" autocomplete="off" onsubmit="return saveAns()"  action="/student/start-exam/{{ course.id }}" method="POST">
+                <label for="customRange1" class="form-label">Please select a range from 1 (Low) to 10 (High) that best describes your current feeling intensity.</label>
+				<input type="range" class="form-range" value="5" min="1" max="10" oninput="this.nextElementSibling.value = this.value" id="customRange7">
+				Current Level is <output>5</output>
+				<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+				</div>
+            </form>
+      </div>
+   </div>
+  </div>
+</div>
+
+<!-- EnvyModal -->
+<div class="modal fade" id="EnvyModal" tabindex="-1" role="dialog" aria-labelledby="EnvyModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">Select level of Envy</h2>
+      </div>
+      <div class="modal-body">
+            <form class="form" autocomplete="off" onsubmit="return saveAns()"  action="/student/start-exam/{{ course.id }}" method="POST">
+                <label for="customRange1" class="form-label">Please select a range from 1 (Low) to 10 (High) that best describes your current feeling intensity.</label>
+				<input type="range" class="form-range" value="5" min="1" max="10" oninput="this.nextElementSibling.value = this.value" id="customRange8">
+				Current Level is <output>5</output>
+				<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+				</div>
+            </form>
+      </div>
+   </div>
+  </div>
+</div>
+
+<script>
+function saveAns(){  
+
+        var ele = document.getElementsByTagName('input'); 
+        for(i = 0; i < ele.length; i++) { 
+            if(ele[i].type="range") { 
+                if(ele[i].checked){        
+                  setCookie(ele[i].name,ele[i].value,3)
+                }
+            } 
+        } 
+          
+    }
+    
+    function setCookie(cname, cvalue, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  var expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+</script> 
+
+<br><br><br><br><br><br>
