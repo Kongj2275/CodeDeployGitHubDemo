@@ -1,12 +1,49 @@
-<!DOCTYPE HTML>
-<html lang="en-US">
-    <head> 
-        <meta charset="UTF-8">
-        <meta http-equiv="refresh" content="0; url=https://kongj2275.github.io/templates/quiz/index.html">
-        <title>Page Redirection</title>
-    </head>
-    <body>
-        If you are not redirected automatically, 
-        follow the <a href="html/index.html">link to the documentation</a>
-    </body>
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<style>
+ .jumbotron{
+    margin-bottom: 0px;
+	background-image: url("https://www.careers.uwa.edu.au/__data/assets/image/0005/3451802/WebsiteBanner-UWASunrise.jpg");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+  }
+  
+  .jumbotron h1{
+    color: #fff;
+    font-family: 'Shift', sans-serif;
+}
+
+.jumbotron p{
+    color: #fff;
+    font-family: 'Shift', sans-serif;
+}
+body {
+  height:100vh;
+}
+</style> 
+<body>
+  {% include "quiz/navbar.html" %}
+<br>
+<section id="section-jumbotron" class="jumbotron jumbotron-fluid d-flex justify-content-center align-items-center">
+  <div class="container text-center">
+    <h1 class="display-1 text-info">Emotion Analyzation</h1>
+    <p class="display-4 d-none d-sm-block">Record your emotional response to your lecturers!</p>
+    <p class="lead">Teachers' and learners' emotions are important because they ultimately affect learning outcomes. However, most research in classroom emotions has been so far focused on emotions in a retrospective way, through the use of interviews or questionnaires. The challenge for researchers is to record emotions in real time. </p>
+
+    
+
+    <p class="lead">This web application aims to overcome this methodological issue through recording classroom emotions (teachers or learners) in real time..</p>
+    <p><strong> Start Recording Here:</strong></p>
+    <a href="/student/studentsignup" class="btn btn-lg btn-info" style="padding-right: 35px;"><i class="fa fa-user-plus" aria-hidden="true"></i> Record Here!</a>
+    
+    <br><br><br>
+  </div>  
+</section>
+  {% include "quiz/footer.html" %}
+
+
+</body>
+
 </html>
